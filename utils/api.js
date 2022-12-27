@@ -6,4 +6,11 @@ const appApi = axios.create({
   timeout: 1000 * 5,
 });
 
+export const setAuthToken = (token) => {
+  if (!token) {
+    delete axios.defaults.headers.common['x-school-admin-be-token'];
+  }
+  axios.defaults.headers.common['x-auth-token'] = token;
+};
+
 export default appApi;
